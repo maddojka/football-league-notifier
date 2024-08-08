@@ -1,7 +1,6 @@
 package com.soroko.footballleaguenotifier.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -14,28 +13,14 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @Entity
-@Table(name = "holder")
+@Table(name = "message")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Holder {
-
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    long id;
 
     @NonNull
     @Column(nullable = false)
-    String fullName;
-
-    @Email
-    @Column(nullable = false)
-    String email;
-
-    @Override
-    public String toString() {
-        return "Holder{" +
-                "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+    String weeklyMessage;
 }

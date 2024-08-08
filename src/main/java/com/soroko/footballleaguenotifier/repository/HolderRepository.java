@@ -1,4 +1,9 @@
 package com.soroko.footballleaguenotifier.repository;
 
-public interface HolderRepository {
+import com.soroko.footballleaguenotifier.entity.Holder;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface HolderRepository extends JpaRepository<Holder, Integer> {
+
+    Holder findByTeamName(String teamName);
 }
