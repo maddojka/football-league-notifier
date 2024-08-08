@@ -30,6 +30,9 @@ public class Holder {
     @Column(nullable = false)
     String email;
 
+    @Column(nullable = false)
+    String teamName;
+
     @Override
     public String toString() {
         return "Holder{" +

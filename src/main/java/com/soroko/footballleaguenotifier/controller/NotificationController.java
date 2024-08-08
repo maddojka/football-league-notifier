@@ -22,16 +22,13 @@ public class NotificationController {
 
     private final MessageService messageService;
 
-    private final KafkaConsumer kafkaConsumer;
-
-    private final RabbitConsumer rabbitConsumer;
 
     @GetMapping("/paid")
     public void register(@RequestParam String teamName) {
         Holder holder = holderService.getHolderByTeamName(teamName);
         mailSender.send(
                 holder.getEmail(),
-                "Team + payment",
+                "Team " + holder.getTeamName() + " payment",
                 "Dear " + holder.getFullName() + "\n"
                         + "Your payment was successfully posted"
         );
